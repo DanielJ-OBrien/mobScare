@@ -29,7 +29,7 @@
     <sourceDirectory>${project.basedir}/src/main/java</sourceDirectory>
     <resources>
       <resource>
-        <directory>${project.basedir}/src/main/resources</directory>
+        <directory>${project.basedir}/src/main/Resources</directory>
         <includes>
           <include>plugin.yml</include>
         </includes>
