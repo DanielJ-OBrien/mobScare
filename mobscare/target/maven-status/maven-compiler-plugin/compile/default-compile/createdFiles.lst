@@ -1,1 +1,3 @@
+com\mobpractise\Events\onPlayerLeaveEvent.class
 com\mobpractise\App.class
+com\mobpractise\Events\onPlayerJoinEvent.class

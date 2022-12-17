@@ -1,12 +1,14 @@
 package com.mobpractise;
+
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
+import com.mobpractise.Events.onPlayerJoinEvent;
+
 public class App extends JavaPlugin {
+    FileConfiguration config = this.getConfig();
     @Override
     public void onEnable() {
-        getLogger().info("Hello, SpigotMC!");
-    }
-    @Override
-    public void onDisable() {
-        getLogger().info("See you again, SpigotMC!");
+        this.saveDefaultConfig();
+        getServer().getPluginManager().registerEvents(new onPlayerJoinEvent(), this);
     }
 }
