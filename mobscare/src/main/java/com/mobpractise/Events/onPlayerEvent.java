@@ -7,20 +7,23 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
-import com.mobpractise.theCreature;
 
-public class onPlayerEvent implements Listener {
-	theCreature creature = new theCreature();
+public class OnPlayerEvent implements Listener {
+	private Entity[] creatureArray = new Entity[10];
 	@EventHandler
 	public void onPlayerJoin(PlayerJoinEvent event) {
 		Player player = event.getPlayer();
 		Entity spawnedEntity = player.getWorld().spawnEntity(player.getLocation().add(player.getLocation().getDirection().setY(0).normalize().multiply(2)), EntityType.COW);
 		spawnedEntity.setCustomName("bruh");
-		creature.addCreature(spawnedEntity);
+		creatureArray[0] = (spawnedEntity);
 	}
 	@EventHandler
 	public void onPlayerQuit(PlayerQuitEvent event) {
-		Entity trueCreature = creature.returnTheCreature();
+		Entity trueCreature = creatureArray[0];
 		trueCreature.remove();
-		}
+	}
 }
+//add config file lol
+//use 'on enable' for crashes
+//use onentityload to check for customNBT
+//research set persisten variable

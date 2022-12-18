@@ -1,11 +1,13 @@
 package com.mobpractise;
 
 import org.bukkit.plugin.java.JavaPlugin;
-import com.mobpractise.Events.onPlayerEvent;
+import com.mobpractise.Events.OnPlayerEvent;
 
 public class App extends JavaPlugin {
     @Override
     public void onEnable() {
-        getServer().getPluginManager().registerEvents(new onPlayerEvent(), this);
+        this.saveDefaultConfig();
+        getServer().getPluginManager().registerEvents(new OnPlayerEvent(), this);
+        //getServer().getWorlds().get(0).getLivingEntities()
     }
 }
