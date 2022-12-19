@@ -14,7 +14,6 @@ public class OnPlayerEvent implements Listener {
 
 	private App plugin;
 	private Entity[] creatureArray = new Entity[10];
-	
 
 	@EventHandler
 	public void onPlayerJoin(PlayerJoinEvent event) {
