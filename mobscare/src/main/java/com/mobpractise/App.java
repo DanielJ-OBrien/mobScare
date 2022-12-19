@@ -1,13 +1,33 @@
 package com.mobpractise;
 
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 import com.mobpractise.Events.OnPlayerEvent;
 
 public class App extends JavaPlugin {
+
+    public static App plugin;
+    private FileConfiguration config = getConfig();
+
     @Override
     public void onEnable() {
-        this.saveDefaultConfig();
+
+        plugin = this;
+        config.addDefault("entityName", "John");
+        config.addDefault("entityType", "COW");
+        config.options().copyDefaults(true);
+        saveConfig();
+
         getServer().getPluginManager().registerEvents(new OnPlayerEvent(), this);
-        //getServer().getWorlds().get(0).getLivingEntities()
     }
+
+    public String getCustomName() {
+        return config.getString("entityName");
+    }
+    public String getCustomEntity(){
+        return config.getString("entityType");
+    }
+
+
 }
+
